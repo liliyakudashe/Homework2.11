@@ -2,7 +2,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Passport {
-    private Set<String> passportNumber;
+    private Set<String> passportNumbers;
     private final String surname;
     private final String name;
     private final String patronymic;
@@ -10,15 +10,15 @@ public class Passport {
 
 
     public Passport(Set<String> passportNumber, String surname, String name, String patronymic, String dateOfBirth) {
-        this.passportNumber = passportNumber;
+        this.passportNumbers = passportNumber;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Set<String> getPassportNumber() {
-        return passportNumber;
+    public Set<String> getPassportNumbers() {
+        return passportNumbers;
     }
 
     public String getSurname() {
@@ -46,23 +46,27 @@ public class Passport {
         return null;
     }
 
+    public boolean issetNumber(String s){
+        return passportNumbers.contains(s);
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Passport passport = (Passport) o;
-        return Objects.equals(passportNumber, passport.passportNumber) && Objects.equals(surname, passport.surname) && Objects.equals(name, passport.name) && Objects.equals(patronymic, passport.patronymic) && Objects.equals(dateOfBirth, passport.dateOfBirth);
+        return Objects.equals(passportNumbers, passport.passportNumbers) && Objects.equals(surname, passport.surname) && Objects.equals(name, passport.name) && Objects.equals(patronymic, passport.patronymic) && Objects.equals(dateOfBirth, passport.dateOfBirth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(passportNumber, surname, name, patronymic, dateOfBirth);
+        return Objects.hash(passportNumbers, surname, name, patronymic, dateOfBirth);
     }
 
     @Override
     public String toString() {
-        return surname + " " + name +", дата рождения "+   dateOfBirth+ ", номер паспорта "+ passportNumber;
+        return surname + " " + name +", дата рождения "+   dateOfBirth+ ", номер паспорта "+ passportNumbers;
     }
 
 }

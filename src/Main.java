@@ -20,7 +20,18 @@ public class Main {
 
         System.out.println(passportSet);
 
+        System.out.println("faing(passportSet,\"45278KIU\") = " + faing(passportSet, "4789562BHY"));
 
+
+    }
+
+    public static Passport faing(Set<Passport> passportSet, String number){
+       for (Passport passports : passportSet){
+           if (passports.issetNumber(number)){
+               return passports;
+           }
+       }
+       return null;
     }
 
 }
